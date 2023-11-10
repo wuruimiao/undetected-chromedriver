@@ -334,6 +334,7 @@ class Patcher(object):
         return "".join(cdc).encode()
 
     def is_binary_patched(self, executable_path=None):
+        return True
         executable_path = executable_path or self.executable_path
         try:
             with io.open(executable_path, "rb") as fh:
@@ -342,6 +343,7 @@ class Patcher(object):
             return False
 
     def patch_exe(self):
+        return
         start = time.perf_counter()
         logger.info("patching driver executable %s" % self.executable_path)
         with io.open(self.executable_path, "r+b") as fh:
